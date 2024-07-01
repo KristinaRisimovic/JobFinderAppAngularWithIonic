@@ -39,10 +39,10 @@ const routes: Routes = [
     loadChildren: () => import('./superheroes/superheroes.module').then( m => m.SuperheroesPageModule),
     canLoad: [AuthGuard]
   }, */
-  /*{
-    path: 'add-superhero',
-    loadChildren: () => import('./add-superhero/add-superhero.module').then( m => m.AddSuperheroPageModule)
-  },*/
+  {
+    path: 'add-job',
+    loadChildren: () => import('./add-job/add-job.module').then( m => m.AddJobPageModule)
+  },
  /*  {
     path: 'favorites',
     loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesPageModule),
@@ -64,6 +64,14 @@ const routes: Routes = [
   {
     path: 'login-or-register',
     loadChildren: () => import('./auth/login-or-register/login-or-register.module').then( m => m.LoginOrRegisterPageModule)
+  },
+  {
+    path: 'jobs',
+    loadChildren: () => import('./jobs/jobs.module').then( m => m.JobsPageModule)
+  },
+  {
+    path: 'add-job',
+    loadChildren: () => import('./add-job/add-job.module').then( m => m.AddJobPageModule)
   },
 /*   {
     path: 'mysuperheroes',

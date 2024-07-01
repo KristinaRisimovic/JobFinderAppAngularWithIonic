@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add a Job</ion-title>
+    <ion-button (click)="onCancel()" slot="end">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onAddJob()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Title:
+            </ion-label>
+            <ion-input type="text" ngModel name="title" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Company Name:
+            </ion-label>
+            <ion-input type="text" ngModel name="companyName" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Location:
+            </ion-label>
+            <ion-input type="text" ngModel name="location" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-label position="floating" style="margin-left: 15px">
+            Work Mode:
+          </ion-label>
+          <ion-item>
+            <ion-radio-group ngModel name="workMode" required>
+              <ion-item>
+                <ion-label>Office</ion-label>
+                <ion-radio slot="start" value="Office"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Home</ion-label>
+                <ion-radio slot="start" value="Home"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Hybrid</ion-label>
+                <ion-radio slot="start" value="Hybrid"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Active Until:
+            </ion-label>
+            <ion-datetime ngModel name="activeUntil" required></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Description:
+            </ion-label>
+            <ion-input type="text" ngModel name="description" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">
+              Required Technologies:
+            </ion-label>
+            <ion-input type="text" ngModel name="requiredTechnologies" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button type="submit" expand="block" [disabled]="f.invalid">
+            Add Job
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
+
