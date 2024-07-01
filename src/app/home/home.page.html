@@ -1,16 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="ion-title-custom">Job Finder App</ion-title>
-
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()">Logout</ion-button>
-    </ion-buttons>
-
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
    
+   <!--  <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title class="ion-title-custom">Job Finder App</ion-title>
+   /* <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>*/
 
   </ion-toolbar>
 </ion-header>
@@ -25,6 +22,8 @@
        <div class="about">
         <p class="description-text">
         Your Career Starts Here!<br>
+      </p> 
+      <p class="description-text1">
         Welcome to Job Finder App, the premier platform for job seekers and employers. Whether you're looking for your first job or the next step in your career, we've got you covered.<br>
       </p> 
       </div>
@@ -34,13 +33,24 @@
 
  </ion-grid>
 
+ <ion-tabs content="main-content">
+  <ion-tab-bar class="tab-bar">
 
+    <ion-tab-button  routerLink="/mysuperheroes" class="tab-button">
+      <ion-icon name="person"></ion-icon>
+      My profile
+    </ion-tab-button>
+    <ion-tab-button routerLink="/favorites" class="tab-button">
+      <ion-icon name="briefcase"></ion-icon>
+      Jobs
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
  
 </ion-content>
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar>
    
   </ion-toolbar>
 </ion-footer>
-
 

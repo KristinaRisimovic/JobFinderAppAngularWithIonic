@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title class="ion-title-custom">Job Finder App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-grid>
+   <ion-row>
+     <ion-col size-sm="4" offset-sm="2">
+       <div class="logoJob">
+         <img src="assets/images/adminIcon.png" alt="logoJob">
+       </div>
+       <div class="about">
+        <p><br></p>
+        <p class="description-text">
+        Hello admin!<br>
+      </p> 
+      
+       
+      </div>
+     </ion-col>
+
+   </ion-row>
+
+ </ion-grid>
+
+ <ion-tabs content="main-content">
+  <ion-tab-bar class="tab-bar">
+
+    <ion-tab-button  routerLink="/mysuperheroes">
+      <ion-icon name="add-circle"></ion-icon>
+      Add New Job
+    </ion-tab-button>
+    <ion-tab-button routerLink="/favorites" >
+      <ion-icon name="close-circle-outline"></ion-icon>
+      Archieve Jobs
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+ 
+</ion-content>
+<!-- <ion-footer>
+  <ion-toolbar>
+   
+  </ion-toolbar>
+</ion-footer> -->
+
