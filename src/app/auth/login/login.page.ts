@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../auth.service";
-import {Router} from "@angular/router";
-import {NgForm} from "@angular/forms";
-import {AlertController} from "@ionic/angular";
+import { AuthService } from "../auth.service";
+import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,22 +15,23 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  onLogin(form: NgForm){
+  onLogin(form: NgForm) {
     console.log(form);
-    if(form.valid){
-    this.authService.login(form.value).subscribe(resData=> {
-      console.log("Prijava uspesna");
-      console.log(resData)
-      this.router.navigateByUrl("/");
-    },
-
-  
-  );
+    if (form && form.valid) { // Provera da li je form definisan i validan
+      this.authService.login(form.value).subscribe(
+        resData => {
+          console.log("Prijava uspesna");
+          console.log(resData);
+          this.router.navigateByUrl("/");
+        },
+        error => {
+          console.error("Greška pri prijavi:", error);
+        }
+      );
+    }
   }
 
-  }
-
-  toRegister(){
-    this.router.navigateByUrl('register')
+  toRegister() {
+    this.router.navigateByUrl('register');
   }
 }

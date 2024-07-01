@@ -1,0 +1,66 @@
+<div class="my-profile">
+    <h2>My Profile</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <!-- Osnovne informacije -->
+      <h3>Osnovne informacije</h3>
+      <label for="firstName">Ime</label>
+      <input type="text" id="firstName" formControlName="firstName">
+      <br>
+      <label for="lastName">Prezime</label>
+      <input type="text" id="lastName" formControlName="lastName">
+      <br>
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+      <br>
+      <label for="phone">Telefon</label>
+      <input type="text" id="phone" formControlName="phone">
+      <br>
+      <label for="address">Adresa</label>
+      <input type="text" id="address" formControlName="address">
+      <br>
+  
+      <!-- Obrazovanje -->
+      <h3>Obrazovanje</h3>
+      <label for="educationLevel">Nivo obrazovanja</label>
+      <select id="educationLevel" formControlName="educationLevel">
+        <option value="srednja">Srednja škola</option>
+        <option value="fakultet">Fakultet</option>
+        <option value="master">Master</option>
+        <option value="doktorat">Doktorat</option>
+      </select>
+      <br>
+      <label for="school">Škola/Fakultet</label>
+      <input type="text" id="school" formControlName="school">
+      <br>
+      <label for="graduationYear">Godina diplomiranja</label>
+      <input type="text" id="graduationYear" formControlName="graduationYear">
+      <br>
+  
+      <!-- Radno iskustvo -->
+      <h3>Radno iskustvo</h3>
+      <label for="jobTitle">Naziv posla</label>
+      <input type="text" id="jobTitle" formControlName="jobTitle">
+      <br>
+      <label for="employer">Poslodavac</label>
+      <input type="text" id="employer" formControlName="employer">
+      <br>
+      <label for="yearsOfExperience">Godine iskustva</label>
+      <input type="number" id="yearsOfExperience" formControlName="yearsOfExperience">
+      <br>
+  
+      <!-- Veštine -->
+      <h3>Veštine</h3>
+      <label for="skills">Veštine (npr. JavaScript, Angular, SQL)</label>
+      <input type="text" id="skills" formControlName="skills">
+      <br>
+  
+      <!-- Ostale informacije -->
+      <h3>Dodatne informacije</h3>
+      <label for="additionalInfo">Dodatne informacije</label>
+      <textarea id="additionalInfo" formControlName="additionalInfo"></textarea>
+      <br>
+  
+      <button type="submit">Sačuvaj profil</button>
+    </form>
+  </div>
+  
