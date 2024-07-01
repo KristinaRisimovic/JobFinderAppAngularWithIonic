@@ -34,8 +34,10 @@ export class MyProfilePage implements OnInit {
       // Ovde možete implementirati logiku za čuvanje podataka, npr. pozivom servisa
       console.log(this.profileForm.value);
       // Resetujte formu ili prikažite poruku o uspešnom čuvanju
-      //this.profileForm.reset();
+      this.profileForm.reset();
       console.log("Uspesno sacuvano!")
+    }else{
+      console.log("Neuspesno");
     }
   }
 }

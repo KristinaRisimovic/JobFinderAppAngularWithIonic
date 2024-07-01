@@ -1,66 +1,94 @@
-<div class="my-profile">
-    <h2>My Profile</h2>
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-      <!-- Osnovne informacije -->
-      <h3>Osnovne informacije</h3>
-      <label for="firstName">Ime</label>
-      <input type="text" id="firstName" formControlName="firstName">
-      <br>
-      <label for="lastName">Prezime</label>
-      <input type="text" id="lastName" formControlName="lastName">
-      <br>
-      <label for="email">Email</label>
-      <input type="email" id="email" formControlName="email">
-      <br>
-      <label for="phone">Telefon</label>
-      <input type="text" id="phone" formControlName="phone">
-      <br>
-      <label for="address">Adresa</label>
-      <input type="text" id="address" formControlName="address">
-      <br>
-  
-      <!-- Obrazovanje -->
-      <h3>Obrazovanje</h3>
-      <label for="educationLevel">Nivo obrazovanja</label>
-      <select id="educationLevel" formControlName="educationLevel">
-        <option value="srednja">Srednja škola</option>
-        <option value="fakultet">Fakultet</option>
-        <option value="master">Master</option>
-        <option value="doktorat">Doktorat</option>
-      </select>
-      <br>
-      <label for="school">Škola/Fakultet</label>
-      <input type="text" id="school" formControlName="school">
-      <br>
-      <label for="graduationYear">Godina diplomiranja</label>
-      <input type="text" id="graduationYear" formControlName="graduationYear">
-      <br>
-  
-      <!-- Radno iskustvo -->
-      <h3>Radno iskustvo</h3>
-      <label for="jobTitle">Naziv posla</label>
-      <input type="text" id="jobTitle" formControlName="jobTitle">
-      <br>
-      <label for="employer">Poslodavac</label>
-      <input type="text" id="employer" formControlName="employer">
-      <br>
-      <label for="yearsOfExperience">Godine iskustva</label>
-      <input type="number" id="yearsOfExperience" formControlName="yearsOfExperience">
-      <br>
-  
-      <!-- Veštine -->
-      <h3>Veštine</h3>
-      <label for="skills">Veštine (npr. JavaScript, Angular, SQL)</label>
-      <input type="text" id="skills" formControlName="skills">
-      <br>
-  
-      <!-- Ostale informacije -->
-      <h3>Dodatne informacije</h3>
-      <label for="additionalInfo">Dodatne informacije</label>
-      <textarea id="additionalInfo" formControlName="additionalInfo"></textarea>
-      <br>
-  
-      <button type="submit">Sačuvaj profil</button>
-    </form>
-  </div>
-  
+<ion-header [translucent]="true" class="ion-header-custom">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-title-custom">My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-content-custom">
+  <ion-grid class="ion-grid-custom">
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <div class="my-profile">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <!-- Osnovne informacije -->
+            <h3>Osnovne informacije</h3>
+            <ion-item>
+              <ion-label position="floating">Ime</ion-label>
+              <ion-input type="text" formControlName="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Prezime</ion-label>
+              <ion-input type="text" formControlName="lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Telefon</ion-label>
+              <ion-input type="text" formControlName="phone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Adresa</ion-label>
+              <ion-input type="text" formControlName="address"></ion-input>
+            </ion-item>
+
+            <!-- Obrazovanje -->
+            <h3>Obrazovanje</h3>
+            <ion-item>
+              <ion-label>Nivo obrazovanja</ion-label>
+              <ion-select formControlName="educationLevel">
+                <ion-select-option value="srednja">Srednja škola</ion-select-option>
+                <ion-select-option value="fakultet">Fakultet</ion-select-option>
+                <ion-select-option value="master">Master</ion-select-option>
+                <ion-select-option value="doktorat">Doktorat</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Škola/Fakultet</ion-label>
+              <ion-input type="text" formControlName="school"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Godina diplomiranja</ion-label>
+              <ion-input type="text" formControlName="graduationYear"></ion-input>
+            </ion-item>
+
+            <!-- Radno iskustvo -->
+            <h3>Radno iskustvo</h3>
+            <ion-item>
+              <ion-label position="floating">Naziv posla</ion-label>
+              <ion-input type="text" formControlName="jobTitle"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Poslodavac</ion-label>
+              <ion-input type="text" formControlName="employer"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Godine iskustva</ion-label>
+              <ion-input type="number" formControlName="yearsOfExperience"></ion-input>
+            </ion-item>
+
+            <!-- Veštine -->
+            <h3>Veštine</h3>
+            <ion-item>
+              <ion-label position="floating">Veštine (npr. JavaScript, Angular, SQL)</ion-label>
+              <ion-input type="text" formControlName="skills"></ion-input>
+            </ion-item>
+
+            <!-- Dodatne informacije -->
+            <h3>Dodatne informacije</h3>
+            <ion-item>
+              <ion-label position="floating">Dodatne informacije</ion-label>
+              <ion-textarea formControlName="additionalInfo"></ion-textarea>
+            </ion-item>
+
+            <ion-button expand="block" type="submit">Sačuvaj profil</ion-button>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

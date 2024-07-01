@@ -76,12 +76,17 @@ ion-icon{
 ion-tab-bar{
 
   --background: rgb(231, 191, 13); // Boja pozadine tab bara (belo)
-  --color-selected: #d49818; // Boja tab-a kada je selektovan (crvena)
+  --color-selected: rgba(231, 191, 13, 0.938); // Boja tab-a kada je selektovan (crvena)
   --color: rgb(231, 191, 13);;
 }
 ion-tab-button{
 
   color:#ffffff;
-  --color-selected: #d49818; // Boja tab-a kada je selektovan (crvena)
+  --color-selected: rgba(231, 191, 13, 0.938); // Boja tab-a kada je selektovan (crvena)
   --color: rgb(231, 191, 13); // Boja tab-a kada nije selektovan (crna)
+}
+ion-tab-button:hover{
+  
+  color:#ffffffb0; //tekst
+  --background: rgba(231, 191, 13, 0.938); // Boja tab-a kada je hoverovan
 }

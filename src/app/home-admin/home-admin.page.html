@@ -32,11 +32,11 @@
  <ion-tabs content="main-content">
   <ion-tab-bar class="tab-bar">
 
-    <ion-tab-button  routerLink="/mysuperheroes">
+    <ion-tab-button  (click)="openModal()">
       <ion-icon name="add-circle"></ion-icon>
       Add New Job
     </ion-tab-button>
-    <ion-tab-button routerLink="/favorites" >
+    <ion-tab-button routerLink="/archieve-job" >
       <ion-icon name="close-circle-outline"></ion-icon>
       Archieve Jobs
     </ion-tab-button>

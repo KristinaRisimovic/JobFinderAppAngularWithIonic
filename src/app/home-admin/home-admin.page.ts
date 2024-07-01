@@ -34,7 +34,8 @@ export class HomeAdminPage implements OnInit {
           resultData.data.jobData.activeUntil,
           resultData.data.jobData.description,
           resultData.data.jobData.requiredTechnologies,
-          'Active' // default status
+          'Active',// default status
+          this.authService.getUserId() 
         ).subscribe((res) => {
           console.log(res);
         });

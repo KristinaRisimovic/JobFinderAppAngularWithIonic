@@ -39,9 +39,9 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
     });
   }
 
-  addJob() {
+  /* addJob() {
     const { title, companyName, location, workMode, activeUntil, description, requiredTechnologies, status } = this.newJob;
-    this.jobService.addJob(title, companyName, location, workMode, activeUntil, description, requiredTechnologies, status).subscribe(() => {
+    this.jobService.addJob(title, companyName, location, workMode, activeUntil, description, requiredTechnologies, status, userId).subscribe(() => {
       this.newJob = {
         title: '',
         companyName: '',
@@ -54,7 +54,7 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
       };
       this.ionViewWillEnter();
     });
-  }
+  } */
 
   archiveJob(id: string) {
     this.jobService.archiveJob(id);

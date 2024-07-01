@@ -31,6 +31,20 @@ export class JobService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   addJob(title: string,
+    companyName: string,
+     location:string,
+     workMode: string,
+     activeUntil: Date,
+     description: string,
+     requiredTechnologies: string,
+      status:'Active' | 'Archived',
+      userId:string){
+        return this.http.post<{id: string}>(
+          `${environment.databaseURL}/jobs.json?auth=${this.authService.getToken()}`,
+          {title, companyName, location, workMode, activeUntil, description, requiredTechnologies, status, userId})
+    }
+
+  /* addJob(title: string,
      companyName: string,
       location:string,
       workMode: string,
@@ -67,7 +81,7 @@ export class JobService {
           this.jobs.next(_jobs.concat(newJob));
             })
           );
-        }
+        } */
     
   
  
