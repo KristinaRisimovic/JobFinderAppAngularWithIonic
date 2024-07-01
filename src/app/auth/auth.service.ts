@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
 import { User } from "./user.model";
 import { Role } from './role';
+import { environment } from 'src/environments/environment';
+import{of} from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +13,7 @@ import { Role } from './role';
 export class AuthService {
   private _isUserAuthenticated = false;
   private adminEmail = 'admin@admin';
-  private adminPassword = 'password';
+  private adminPassword = 'password123';
   private adminRole = Role.Admin; // Hardkodovana uloga admina
 
   user: User | null = null;
@@ -43,7 +45,7 @@ export class AuthService {
     if (user.email === this.adminEmail && user.password === this.adminPassword) {
       const expirationTime = new Date(new Date().getTime() + 3600 * 1000); // 1 sat
       this.user = new User('adminId', this.adminEmail, 'adminToken', expirationTime, this.adminRole);
-      return; // Prekidamo dalji proces prijave jer je admin prijava uspešna
+      return of(null); // Prekidamo dalji proces prijave jer je admin prijava uspešna
     }
 
     // Ako nije admin, nastavljamo sa standardnom prijavom
@@ -59,7 +61,7 @@ export class AuthService {
       )
     );
   }
-
+  
   logout() {
     this._isUserAuthenticated = false;
     this.user = null;
