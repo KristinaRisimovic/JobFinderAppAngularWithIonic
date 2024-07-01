@@ -11,8 +11,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {  HttpClientModule } from '@angular/common/http';
 import {AddJobModalComponent} from "./add-job.modal/add-job.modal.component";
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
+
 @NgModule({
-  declarations: [AppComponent, AddJobModalComponent],
+  declarations: [AppComponent, AddJobModalComponent, UserComponent, AdminComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment),
     AngularFireAuthModule,
     AngularFirestoreModule,FormsModule,HttpClientModule],

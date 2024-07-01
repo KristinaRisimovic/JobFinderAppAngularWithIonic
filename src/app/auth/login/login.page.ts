@@ -22,7 +22,11 @@ export class LoginPage implements OnInit {
         resData => {
           console.log("Prijava uspesna");
           console.log(resData);
+
           this.router.navigateByUrl("/home-admin");
+
+         // this.router.navigateByUrl("/home");
+
         },
         error => {
           console.error("Greška pri prijavi:", error);

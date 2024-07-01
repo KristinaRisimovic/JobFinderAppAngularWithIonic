@@ -1,3 +1,4 @@
+
 /* Stilizacija za ion-header */
 
 ion-toolbar {
@@ -39,3 +40,72 @@ ion-label{
 }
   
   
+
+/* Stilizacija za .my-profile div */
+.my-profile {
+    width: 100vw; /* Širina jednaka širini ekrana */
+    max-width: 100%; /* Maksimalna širina je 100% širine ekrana */
+    height: 100vh; /* Visina jednaka visini ekrana */
+    margin: auto; /* Centriranje */
+    padding: 20px; /* Unutrašnji razmak */
+    font-family: 'Verdana', sans-serif; /* Promena fonta */
+    background-color: #f0f0f0; /* Pozadinska boja */
+    border: 1px solid #ccc; /* Ivica oko kontejnera */
+    border-radius: 5px; /* Zaobljeni uglovi */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Senka */
+
+    overflow-y: auto;
+    
+  }
+  
+  /* Stilizacija za h2 */
+  .my-profile h2 {
+    color: #333; /* Boja teksta */
+    font-size: 20px; /* Veličina fonta */
+    margin-bottom: 10px; /* Donji razmak */
+  }
+  
+  /* Stilizacija za label i input */
+  .my-profile label {
+    display: block; /* Blok elementi */
+    margin-top: 10px; /* Gornji razmak između elemenata */
+  }
+  
+  .my-profile input,
+  .my-profile select,
+  .my-profile textarea {
+    width: calc(100% - 40px); /* Širina sa marginama */
+    padding: 5px; /* Unutrašnji razmak */
+    margin-top: 5px; /* Gornji razmak između elemenata */
+    border: 1px solid #ccc; /* Ivica */
+    border-radius: 4px; /* Zaobljeni uglovi */
+    font-size: 15px; /* Veličina fonta */
+  }
+  
+  /* Stilizacija za select */
+  .my-profile select {
+    width: 100%; /* Širina */
+  }
+  
+  /* Stilizacija za textarea */
+  .my-profile textarea {
+    height: 100px; /* Visina */
+  }
+  
+  /* Stilizacija za button */
+  .my-profile button {
+    background-color: #007bff; /* Boja pozadine */
+    color: #fff; /* Boja teksta */
+    border: none; /* Bez ivice */
+    padding: 10px 20px; /* Unutrašnji razmak */
+    font-size: 15px; /* Veličina fonta */
+    cursor: pointer; /* Kursor na hover */
+    border-radius: 4px; /* Zaobljeni uglovi */
+    margin-top: 10px; /* Gornji razmak */
+  }
+  
+  .my-profile button:hover {
+    background-color: #0056b3; /* Boja pozadine na hover */
+  }
+  
+

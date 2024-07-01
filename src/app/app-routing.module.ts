@@ -14,10 +14,10 @@ const routes: Routes = [
     loadChildren: () => import('./superheroes/superheroes.module').then( m => m.SuperheroesPageModule),
     canLoad: [AuthGuard]
   }, */
-  {
+ /* {
     path: 'add-job',
     loadChildren: () => import('./add-job/add-job.module').then( m => m.AddJobPageModule)
-  },
+  },*/
  /*  {
     path: 'favorites',
     loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesPageModule),

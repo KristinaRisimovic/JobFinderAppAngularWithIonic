@@ -67,6 +67,10 @@ export class AuthService {
     this.user = null;
   }
 
+  logoutAdmin() {
+    this._isUserAuthenticated = false;
+    this.user = null;
+  }
   getToken() {
     return this.user && this.user.token ? this.user.token : null;
   }

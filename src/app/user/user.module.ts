@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import { UserRoutingModule } from './user-routing-module';
 
 
+
 @NgModule({
   declarations: [UserComponent],
   imports: [
@@ -11,4 +12,4 @@ import { UserRoutingModule } from './user-routing-module';
     UserRoutingModule
   ]
 })
-export class AdminModule { }
+export class UserModule { }

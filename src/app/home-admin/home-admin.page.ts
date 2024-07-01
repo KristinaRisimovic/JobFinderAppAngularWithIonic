@@ -3,6 +3,7 @@ import {AddJobModalComponent} from "../add-job.modal/add-job.modal.component";
 import {ModalController} from "@ionic/angular";
 import {JobService} from "../jobs/jobs.service";
 import {AuthService} from "../auth/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-admin',
@@ -11,10 +12,16 @@ import {AuthService} from "../auth/auth.service";
 })
 export class HomeAdminPage implements OnInit {
 
-  constructor(private modalCtrl: ModalController, private jobService: JobService, private authService: AuthService) { }
+  constructor(private modalCtrl: ModalController, private jobService: JobService, private authService: AuthService,private router: Router) { }
 
   ngOnInit() {
   }
+
+  logoutAdmin(): void {
+    this.authService.logoutAdmin(); // Poziv metode za odjavu iz AuthService-a
+    this.router.navigate(['/login']); // Preusmeravanje na stranicu za prijavu nakon odjave
+  }
+
   openModal() {
     this.modalCtrl.create({
       component: AddJobModalComponent
