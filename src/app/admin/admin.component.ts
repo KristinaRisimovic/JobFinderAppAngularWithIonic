@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from '../auth/user.model';
 
+
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
-export class UserComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   currentUser: User | null = null;
 
@@ -17,8 +18,8 @@ export class UserComponent implements OnInit {
     this.currentUser = this.authService.user;
   }
 
-  logout(): void {
-      this.authService.logout();
+  logoutAdmin(): void {
+      this.authService.logoutAdmin(); 
     this.currentUser = null; // Clear currentUser after logout
   }
 

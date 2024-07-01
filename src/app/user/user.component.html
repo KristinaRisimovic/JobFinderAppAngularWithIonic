@@ -1,0 +1,12 @@
+<div *ngIf="currentUser" class="user-info">
+    <p>Welcome, {{ currentUser.email }}</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+  
+  <div *ngIf="!currentUser" class="not-logged-in">
+    <p>No user logged in</p>
+  </div>
+
+
+
+  
