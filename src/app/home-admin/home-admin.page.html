@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
    
-   <!--  <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons> -->
     <ion-title class="ion-title-custom">Job Finder App</ion-title>
@@ -13,15 +13,15 @@
    <ion-row>
      <ion-col size-sm="4" offset-sm="2">
        <div class="logoJob">
-         <img src="assets/images/jobFinderLogo.png" alt="logoJob">
+         <img src="assets/images/adminIcon.png" alt="logoJob">
        </div>
        <div class="about">
+        <p><br></p>
         <p class="description-text">
-        Your Career Starts Here!<br>
+        Hello admin!<br>
       </p> 
-      <p class="description-text1">
-        Welcome to Job Finder App, the premier platform for job seekers and employers. Whether you're looking for your first job or the next step in your career, we've got you covered.<br>
-      </p> 
+      
+       
       </div>
      </ion-col>
 
@@ -32,13 +32,13 @@
  <ion-tabs content="main-content">
   <ion-tab-bar class="tab-bar">
 
-    <ion-tab-button  routerLink="/mysuperheroes" class="tab-button">
-      <ion-icon name="person"></ion-icon>
-      My profile
+    <ion-tab-button  routerLink="/mysuperheroes">
+      <ion-icon name="add-circle"></ion-icon>
+      Add New Job
     </ion-tab-button>
-    <ion-tab-button routerLink="/favorites" class="tab-button">
-      <ion-icon name="briefcase"></ion-icon>
-      Jobs
+    <ion-tab-button routerLink="/favorites" >
+      <ion-icon name="close-circle-outline"></ion-icon>
+      Archieve Jobs
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

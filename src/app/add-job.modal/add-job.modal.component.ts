@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ModalController} from "@ionic/angular";
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../auth/auth.service";
-
+import { Role } from '../auth/role';
 
 @Component({
   selector: 'app-add-job.modal',

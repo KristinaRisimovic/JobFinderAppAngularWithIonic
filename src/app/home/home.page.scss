@@ -31,16 +31,21 @@ ion-content {
 
 
 /* Stilizacija za ion-button */
-ion-button {
-  margin-top: 40px; /* Gornji razmak između dugmadi */
- 
-  
+ion-menu-button {
+  color: white; /* Set the icon color to white */
 }
+
+ion-buttons {
+  ion-button {
+    color: white; /* Ensure all buttons within ion-buttons are white */
+  }
+}
+
 ion-toolbar {
   --background: rgb(231, 191, 13);
   margin-bottom: 0px;
   }
-ion-toolbar, ion-tab-bar, ion-tab-button {
+ion-toolbar, ion-tab-bar {
 
   background-color: rgb(224, 221, 5);
 
@@ -48,9 +53,35 @@ ion-toolbar, ion-tab-bar, ion-tab-button {
 .description-text {
   color: black; /* Change text color to black */
   font-family: 'Verdana', sans-serif; /* Change font */
-  font-size: 16px; /* Adjust font size */
+  font-size: 18px; /* Adjust font size */
   line-height: 1.5; /* Adjust line height for readability */
   text-align: center; /* Center align the text */
   margin-top: 20px; /* Add margin to the top */
   font-weight: bold;
+}
+.description-text1 {
+  color: black; /* Change text color to black */
+  font-family: 'Verdana', sans-serif; /* Change font */
+  font-size: 15px; /* Adjust font size */
+  line-height: 1.5; /* Adjust line height for readability */
+  text-align: center; /* Center align the text */
+  margin-top: 20px; /* Add margin to the top */
+ 
+}
+ion-icon{
+
+  --color--ion-color-primary: #ffffff;
+  
+   }
+ion-tab-bar{
+
+  --background: rgb(231, 191, 13); // Boja pozadine tab bara (belo)
+  --color-selected: #d49818; // Boja tab-a kada je selektovan (crvena)
+  --color: rgb(231, 191, 13);;
+}
+ion-tab-button{
+
+  color:#ffffff;
+  --color-selected: #d49818; // Boja tab-a kada je selektovan (crvena)
+  --color: rgb(231, 191, 13); // Boja tab-a kada nije selektovan (crna)
 }
