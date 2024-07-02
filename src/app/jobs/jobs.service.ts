@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import {BehaviorSubject, map, Observable, switchMap, take, tap,throwError} from "rxjs";
 import { Job } from './job.model';
 import {HttpClient} from "@angular/common/http";
@@ -42,8 +42,8 @@ export class JobService {
         return this.http.post<{id: string}>(
           `${environment.databaseURL}/jobs.json?auth=${this.authService.getToken()}`,
           {title, companyName, location, workMode, activeUntil, description, requiredTechnologies, status, userId})
-    }
-
+  }
+*/
   /* addJob(title: string,
      companyName: string,
       location:string,
@@ -84,7 +84,7 @@ export class JobService {
         } */
     
   
- 
+ /*
   getJobs() {
     return this.http.get<{[key: string]: JobData}>(`${environment.databaseURL}/jobs.json?auth=${this.authService.getToken()}`)
       .pipe(map((JobData: any) => {
@@ -109,7 +109,7 @@ export class JobService {
           this.jobs.next(_jobs);
         }));
   }
- 
+ */
 
   /* updateJob(updatedJob: Job) {
     const currentJobs = this.jobs.getValue();
@@ -119,7 +119,7 @@ export class JobService {
       this.jobs.next([...currentJobs]);
     }
   } */
-
+/*
     archiveJob(id: string): void{
       const currentJobs = this.jobs.getValue();
       const jobIndex = currentJobs.findIndex(job => job.id === id);
@@ -134,17 +134,17 @@ export class JobService {
             tap(() => {
               this.jobs.next([...currentJobs]);
             })
-          );
+          );*/
          /*  .subscribe({
             next: () => {
               console.log('Uspešna promena');
             },error: (error) => {
               console.error('Greška prilikom promene', error);
             }}) */
-      } else {
+     /* } else {
          throwError(() => new Error('Job not found'));
       }
-    }
+    }*/
  /*  archiveJobs(id: string) {
     const currentJobs = this.jobs.getValue();
     const jobIndex = currentJobs.findIndex(job => job.id === jobId);
@@ -155,4 +155,83 @@ export class JobService {
   } */
 
  
+ 
+
+
+/*pokusaj drugog pristupa*/
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+import { Job } from './job.model';
+
+interface JobData {
+    
+  title: string;
+  companyName: string;
+  location: string;
+  workMode: string;
+  activeUntil: Date;
+  description: string;
+  requiredTechnologies: string;
+  status: 'Active' | 'Archived';
+  userId:string;
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class JobService {
+  private jobsRef: AngularFireList<any>;
+  private jobsSubject: BehaviorSubject<Job[]> = new BehaviorSubject<Job[]>([]);
+
+  constructor(private db: AngularFireDatabase) {
+    this.jobsRef = this.db.list<Job>('jobs');
+
+    // Učitavanje početnih podataka
+    this.loadInitialData();
+  }
+
+  private loadInitialData() {
+    this.jobsRef.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(action => {
+          const key = action.payload.key;
+          const data = action.payload.val() as Job;
+          return { id: key, ...data };
+        });
+      })
+    ).subscribe(jobs => {
+      this.jobsSubject.next(jobs);
+    });
+  }
+
+  get _jobs(): Observable<Job[]> {
+    return this.jobsSubject.asObservable();
+  }
+
+  addJob(jobData: Job) {
+    return this.jobsRef.push(jobData);
+  }
+
+  getJobs(): Observable<Job[]> {
+    return this.jobsRef.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(action => {
+          const key = action.payload.key;
+          const data = action.payload.val() as Job;
+          return { id: key, ...data };
+        });
+      })
+    );
+  }
+
+  // Dodatne metode za ažuriranje, brisanje ili čitanje podataka
+
+}
+
+
+
+
+

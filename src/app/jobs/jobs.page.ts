@@ -28,13 +28,13 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
   constructor(private jobService: JobService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.jobSub = this.jobService._jobs.subscribe((jobData) => {
+    this.jobSub = this.jobService.getJobs().subscribe((jobData) => {
       this.jobs = jobData;
     });
   }
 
   ionViewWillEnter() {
-    this.jobService.getJobs().subscribe((jobData) => {
+    this.jobService._jobs.subscribe((jobData) => {
       this.jobs = jobData;
     });
   }
@@ -56,10 +56,10 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
     });
   } */
 
-  archiveJob(id: string) {
+  /* archiveJob(id: string) {
     this.jobService.archiveJob(id);
     this.ionViewWillEnter();
-  }
+  }*/
 
   ngOnDestroy() {
     if (this.jobSub) {

@@ -4,6 +4,7 @@ import {ModalController} from "@ionic/angular";
 import {JobService} from "../jobs/jobs.service";
 import {AuthService} from "../auth/auth.service";
 import { Router } from '@angular/router';
+import { Job } from '../jobs/job.model';
 
 
 @Component({
@@ -33,25 +34,34 @@ export class HomePage implements OnInit {
     }).then((resultData) => {
       if (resultData.role === 'confirm') {
         console.log(resultData);
-        // povratna vrednost ove POST metode je Observable pa zato moramo da se subscribe-ujemo i da definisemo next fju
-        // odnosno sta treba da se desi kad se superhero sacuva na firebase-u
-        this.jobService.addJob(
-          resultData.data.jobData.title,
-          resultData.data.jobData.companyName,
-          resultData.data.jobData.location,
-          resultData.data.jobData.workMode,
-          resultData.data.jobData.activeUntil,
-          resultData.data.jobData.description,
-          resultData.data.jobData.requiredTechnologies,
-          'Active', 
-          this.authService.getUserId(),
-           // default status
-        ).subscribe((res) => {
-          console.log(res);
+        
+        const jobData = resultData.data.JobData; // Dobijamo podatke iz modalnog prozora
+  
+        // Kreiramo novi objekat Job sa dodatim id-om
+        const newJob: Job = {
+          id: jobData.title, //ovde treba videti sta da bude id zapravo
+          title: jobData.title,
+          companyName: jobData.companyName,
+          location: jobData.location,
+          workMode: jobData.workMode,
+          activeUntil: jobData.activeUntil,
+          description: jobData.description,
+          requiredTechnologies: jobData.requiredTechnologies,
+          status: 'Active', // Default status
+          userId: this.authService.getUserId()
+        };
+  
+        // Dodavanje posla u bazu koristeći AngularFire
+        this.jobService.addJob(newJob).then(ref => {
+          console.log('Dodat posao sa ID-jem:', ref.key);
+        }).catch(error => {
+          console.error('Greška prilikom dodavanja posla:', error);
         });
       }
     });
   }
+  
+  
 
  /*  openModal() {
     this.modalCtrl.create({
