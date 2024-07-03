@@ -5,7 +5,7 @@ import { AdminGuard } from './admin/admin.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./auth/login-or-register/login-or-register.module').then(m => m.LoginOrRegisterPageModule)
     /* redirectTo: 'home',
     pathMatch: 'full' */
   },
@@ -46,22 +46,28 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login-or-register/login-or-register.module').then( m => m.LoginOrRegisterPageModule)
   },
 
-  {
+   {
     path: 'jobs',
     loadChildren: () => import('./jobs/jobs.module').then( m => m.JobsPageModule),
     canActivate: [AuthGuard] 
-  },
+  }, 
   {
     path: 'add-job',
     loadChildren: () => import('./add-job/add-job.module').then( m => m.AddJobPageModule),
     canActivate: [AdminGuard]
   },
+ 
 /*   {
     path: 'mysuperheroes',
     loadChildren: () => import('./mysuperheroes/mysuperheroes.module').then( m => m.MysuperheroesPageModule),
     canLoad: [AuthGuard]
   }, */
 
+  {
+    path: 'job-cards',
+    loadChildren: () => import('./jobs/jobs.module').then( m => m.JobsPageModule),
+    //canActivate: [AuthGuard]
+  },
 
 
    { 
@@ -72,9 +78,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'login-or-register'
-  } 
-
-
+  } ,
+ 
 ];
 
 @NgModule({

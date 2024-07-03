@@ -40,7 +40,10 @@ ion-buttons {
     color: white; /* Ensure all buttons within ion-buttons are white */
   }
 }
+.ion-button-custom1{
+  --color: white; 
 
+}
 ion-toolbar {
   --background: rgb(231, 191, 13);
   margin-bottom: 0px;

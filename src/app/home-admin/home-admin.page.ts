@@ -18,51 +18,58 @@ export class HomeAdminPage implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   logoutAdmin(): void {
     this.authService.logoutAdmin(); // Poziv metode za odjavu iz AuthService-a
     this.router.navigate(['/login']); // Preusmeravanje na stranicu za prijavu nakon odjave
+    //console.log("Uspesna odjava sa sistema");
   }
+
+   /*  openModal() {
+      this.modalCtrl.create({
+        component: AddJobModalComponent
+      }).then((modal: HTMLIonModalElement) => {
+        modal.present();
+        return modal.onDidDismiss();
+      }).then((resultData) => {
+        if (resultData.role === 'confirm') {
+          console.log(resultData);
+          
+          const jobData = resultData.data.JobData; // Dobijamo podatke iz modalnog prozora
+    
+          // Kreiramo novi objekat Job sa dodatim id-om
+          const newJob: Job = {
+            id: this.generateUniqueId(), //ovde treba videti sta da bude id zapravo
+            title: jobData.title,
+            companyName: jobData.companyName,
+            location: jobData.location,
+            workMode: jobData.workMode,
+            activeUntil: jobData.activeUntil,
+            description: jobData.description,
+            requiredTechnologies: jobData.requiredTechnologies,
+            status: 'Active', // Default status
+            userId: this.authService.getUserId()
+          };
+          if (newJob.userId) {
+    
+          // Dodavanje posla u bazu koristeći AngularFire
+          this.jobService.addJob(newJob).then(ref => {
+            console.log('Dodat posao sa ID-jem:', ref.key);
+          }).catch(error => {
+            console.error('Greška prilikom dodavanja posla:', error);
+          });
+        } else {
+          console.error('Korisnik nije autentifikovan.');
+        }
+        }
+      });
+    }
+   */
+    generateUniqueId(): string {
+      return Math.random().toString(36).substr(2, 9);
+    }
 
   openModal() {
-    this.modalCtrl.create({
-      component: AddJobModalComponent
-    }).then((modal: HTMLIonModalElement) => {
-      modal.present();
-      return modal.onDidDismiss();
-    }).then((resultData) => {
-      if (resultData.role === 'confirm') {
-        console.log(resultData);
-        
-        const jobData = resultData.data.JobData; // Dobijamo podatke iz modalnog prozora
-  
-        // Kreiramo novi objekat Job sa dodatim id-om
-        const newJob: Job = {
-          id: jobData.title, //ovde treba videti sta da bude id zapravo
-          title: jobData.title,
-          companyName: jobData.companyName,
-          location: jobData.location,
-          workMode: jobData.workMode,
-          activeUntil: jobData.activeUntil,
-          description: jobData.description,
-          requiredTechnologies: jobData.requiredTechnologies,
-          status: 'Active', // Default status
-          userId: this.authService.getUserId()
-        };
-  
-        // Dodavanje posla u bazu koristeći AngularFire
-        this.jobService.addJob(newJob).then(ref => {
-          console.log('Dodat posao sa ID-jem:', ref.key);
-        }).catch(error => {
-          console.error('Greška prilikom dodavanja posla:', error);
-        });
-      }
-    });
-  }
-  
-  
-
- /*  openModal() {
     this.modalCtrl.create({
       component: AddJobModalComponent
     }).then((modal: HTMLIonModalElement) => {
@@ -82,11 +89,11 @@ export class HomeAdminPage implements OnInit {
           resultData.data.jobData.description,
           resultData.data.jobData.requiredTechnologies,
           'Active',
-          this.authService.getUserId()
-          ).subscribe((res) =>{
+          this.authService.getUserId(),
+           'bookmark-outline').subscribe((res) =>{
           console.log(res);
         })
       }
     })
-  } */
+  } 
 }

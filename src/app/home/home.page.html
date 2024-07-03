@@ -7,7 +7,7 @@
     <ion-title class="ion-title-custom">Job Finder App</ion-title>
   
     <ion-buttons slot="end">
-      <ion-button (click)="logout()">Logout</ion-button>
+      <ion-button (click)="logout()" class="ion-button-custom1">Logout</ion-button>
     </ion-buttons>
 
   </ion-toolbar>
@@ -37,13 +37,17 @@
  <ion-tabs content="main-content">
   <ion-tab-bar class="tab-bar">
 
-    <ion-tab-button  routerLink="/my-profile" class="tab-button">
+    <ion-tab-button   (click)="openModalMP()" class="tab-button">
       <ion-icon name="person"></ion-icon>
       My profile
     </ion-tab-button>
-    <ion-tab-button routerLink="/jobs" class="tab-button">
+    <ion-tab-button routerLink="/job-cards" class="tab-button">
       <ion-icon name="briefcase"></ion-icon>
       Jobs
+    </ion-tab-button>
+    <ion-tab-button  routerLink="/my-profile" class="tab-button">
+      <ion-icon name="bookmark"></ion-icon>
+      Saved
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
