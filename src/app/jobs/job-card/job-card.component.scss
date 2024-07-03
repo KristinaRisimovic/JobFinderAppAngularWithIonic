@@ -1,0 +1,58 @@
+/* Stilizacija za ion-content */
+.ion-content-custom {
+    --background: #f2f2f2; 
+  }
+  
+  
+  .ion-form-custom {
+    padding: 20px; 
+  }
+  
+  
+  .ion-grid-custom {
+    max-width: 600px; 
+    margin: auto; 
+  }
+  
+  ion-label{
+    --color:#000;
+  
+  }
+  .ion-list-custom {
+    background-color: #ffffff; 
+    border-radius: 8px; 
+   // box-shadow: 0 4px 8px rgba(219, 186, 186, 0.1);
+    padding: 15px; 
+  }
+  
+  
+  .ion-row-button {
+    margin-top: 20px; 
+  }
+  
+  
+  .ion-row-register {
+    margin-top: 50px; 
+  }
+  
+  ion-toolbar {
+    --background: rgb(231, 191, 13);
+   
+    }
+  ion-item {
+    
+      --background: #ffffff; /* Podesite pozadinu stavke na belu */
+    --color: #000;
+    --highlight-color-valid: var(--ion-color-primary); 
+    --highlight-color-invalid: var(--ion-color-danger);
+    ion-label{
+      --color:#000;
+  
+    }
+  }
+  .ion-input-custom {
+    --background:#ffffff ; /* Podesite pozadinu na transparentnu */
+    --color: #000; /* Podesite boju teksta na crnu ili neku drugu boju po vašem izboru */
+    --placeholder-color: #666; /* Podesite boju placeholder teksta */
+  }
+  

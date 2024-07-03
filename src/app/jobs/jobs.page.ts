@@ -14,16 +14,7 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
   jobs: Job[] = [];
   private jobSub: Subscription = new Subscription();
 
-  newJob = {
-    title: '',
-    companyName: '',
-    location: '',
-    workMode: '',
-    activeUntil: new Date(),
-    description: '',
-    requiredTechnologies: '',
-    status: 'Active' as 'Active'
-  };
+  
 
   constructor(private jobService: JobService, private authService: AuthService) {}
 
@@ -32,9 +23,24 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
       this.jobs = jobData;
     });
   }
-
+  updateJobIcon(id: string, titleS: string, companyNameS: string,locationS: string,workModeS:string,activeUntilS: Date, descriptionS: string, requiredTechnologiesS: string,iconNameS: string) {
+    this.jobService.updateJob(
+        id,
+        {title: titleS,
+          companyName:companyNameS,
+          location:locationS,
+          workMode:workModeS,
+          activeUntil:activeUntilS,
+          description: descriptionS,
+          requiredTechnologies:requiredTechnologiesS,
+          iconName: iconNameS}
+    ).subscribe(() =>{
+      this.ngOnInit();
+      this.ionViewWillEnter();
+    })
+  }
   ionViewWillEnter() {
-    this.jobService._jobs.subscribe((jobData) => {
+    this.jobService.getJobs().subscribe((jobData) => {
       this.jobs = jobData;
     });
   }
@@ -66,4 +72,5 @@ export class JobsPage implements OnInit, OnDestroy, ViewWillEnter {
       this.jobSub.unsubscribe();
     }
   }
+  
 }

@@ -1,0 +1,31 @@
+<ion-card class="custom-card">
+  
+  <ion-card-header>
+    <ion-card-title>{{job.title}}</ion-card-title>
+    <ion-card-subtitle>{{job.companyName}} <br> {{job.location}} </ion-card-subtitle>
+    
+  </ion-card-header>
+
+  <ion-card-content class="content-text">
+    <br>
+    Apply until: {{job.activeUntil}}
+    <br>
+    Work mode: {{job.workMode}}
+    <br>
+    {{job.description}}
+    <br>
+    
+    Required Technologies:{{job.requiredTechnologies}}
+
+
+
+  </ion-card-content>
+<ion-card-content class="content-icons">
+<!--<button ion-fab mini clear (click)="mIName = 'arrow-dropup'">
+   <ion-icon #minimizeIcon [name]="mIName"></ion-icon>
+</button>-->
+  <button class="button-icon" (click)="status(job.id, job.title,job.companyName, job.location, job.workMode, job.activeUntil, job.description, job.requiredTechnologies, job.status, job.iconName)">
+  <ion-icon #minimizeIcon [name]="job.iconName"  slot = "start"  size = "large" style="color: blue;"></ion-icon>
+  </button>
+</ion-card-content>
+</ion-card>

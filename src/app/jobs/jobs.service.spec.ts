@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { JobService } from './jobs.service';
 
 
-describe('QuotesService', () => {
+describe('JobsService', () => {
   let service: JobService;
 
   beforeEach(() => {

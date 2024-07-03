@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large">
+      Jobs
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let job of jobs">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ job.title }}</ion-card-title>
+            <ion-card-subtitle>{{ job.companyName }}</ion-card-subtitle>
+            <ion-badge color="success" slot="end">{{ job.status }}</ion-badge>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Active Until:</strong> {{ job.activeUntil | date }}</p>
+            <p><strong>Location:</strong> {{ job.location }}</p>
+            <p><strong>Work Mode:</strong> {{ job.workMode }}</p>
+            
+            <p><strong>Description:</strong> {{ job.description }}</p>
+            <p><strong>Required Technologies:</strong> {{ job.requiredTechnologies }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-header>
+</ion-content>

@@ -1,0 +1,24 @@
+ion-header {
+  --background: #e7bf0d; /* Primer žute boje */
+}
+
+ion-toolbar {
+  --background: #e7bf0d; /* Primer žute boje */
+  --color: blue; /* Boja teksta */
+}
+
+ion-title {
+  color: blue !important; /* Boja teksta */
+}
+
+ion-buttons {
+  --color: rgb(83, 83, 238)!important; /* Boja ikona u dugmadima */
+}
+
+ion-back-button {
+  --color: rgb(83, 83, 238) !important; /* Boja back dugmeta */
+}
+
+ion-content {
+  --background: #f2f2f2; 
+}

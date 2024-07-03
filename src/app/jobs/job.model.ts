@@ -9,4 +9,5 @@ export interface Job {
     requiredTechnologies: string;
     status: 'Active' | 'Archived';
     userId:string;
+    iconName: string;
   }
