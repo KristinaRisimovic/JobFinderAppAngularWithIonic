@@ -46,7 +46,26 @@ export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
  
+  getUserData(): Observable<any> {
+    const userId = this.authService.getUserId(); // Pretpostavka: AuthService ima metodu za dohvatanje userId-a
+    console.log('id: ' + userId);
+    return this.http.get<any>(`${environment.databaseURL}/users/${userId}.json`);
+  }
 
+  /*saveUserData(userData: any): Observable<any> {
+    const userId = this.authService.getUserId(); // Pretpostavka: AuthService ima metodu za dohvatanje userId-a
+    return this.http.put(`${environment.databaseURL}/users/${userId}.json`, userData);
+  }*/
+    saveUserData(userData: any): Observable<any> {
+      const token = this.authService.getToken();
+      if (token) {
+        return this.http.post(`${environment.databaseURL}/users.json?auth=${token}`, userData);
+      } else {
+    
+        console.error('Korisnik nije autentifikovan.');
+        throw new Error('Korisnik nije autentifikovan.');
+      }
+    }
 
 
 
