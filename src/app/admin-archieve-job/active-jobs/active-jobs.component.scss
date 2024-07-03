@@ -1,0 +1,37 @@
+.custom-card {
+    background-color: rgba(98, 151, 230, 0.856); 
+    //background-color: rgb(231, 191, 13);
+
+  }
+  
+  .custom-card .content-text {
+    color: rgba(0, 0, 0, 0.767); /* Postavite boju pozadine kartice na žutu */
+  }
+.content-icons{
+    text-align: end;
+  
+  }
+  .content-text{
+    text-align: justify;
+  }
+  
+  .button-icon{
+    background-color: rgba(231, 191, 13, 0.918);
+  }
+  ion-card-title{
+
+    color: blue;
+  }
+  ion-card-subtitle{
+
+    color: white;
+
+  }
+  .ion-button-custom2{
+    --background: rgba(231, 191, 13, 0.918);  
+    --color: white;    
+
+
+  }
+ 
+ 

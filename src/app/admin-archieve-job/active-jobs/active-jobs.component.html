@@ -1,0 +1,37 @@
+<ion-card class="custom-card">
+  
+  <ion-card-header>
+    <ion-card-title>{{job.title}}</ion-card-title>
+    <ion-card-subtitle>{{job.companyName}} <br> {{job.location}} </ion-card-subtitle>
+    
+  </ion-card-header>
+
+  <ion-card-content class="content-text">
+    <br>
+    Apply until: {{job.activeUntil}}
+    <br>
+    Work mode: {{job.workMode}}
+    <br>
+    <br>
+    {{job.description}}
+    <br>
+    <br>
+    Required Technologies:{{job.requiredTechnologies}}
+
+
+
+  </ion-card-content>
+
+  <ion-card-content class="content-icons">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-badge color="success">{{ job.status }}</ion-badge>
+      </ion-col>
+      <ion-col>
+        <ion-button  class="ion-button-custom2" shape="square" (click)="archieve(job)">Archive job</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card-content>
+</ion-card>
